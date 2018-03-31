@@ -4,6 +4,7 @@ var xotArr = [];
 var eatArr = [];
 var gishaArr = [];
 var patArr = [];
+var norkerArr = [];
 
 var L = 80;
 var K = 50;
@@ -11,7 +12,7 @@ var xotCount = 1000;
 var xotakerCount = 500;
 var gishaCount = 300;
 var patCount = 100;
-
+var norkerCount = 100;
 
 
 for (var i = 0; i < K; i++) {
@@ -64,6 +65,16 @@ while (p < patCount) {
         p++;
     }
 }
+p = 0;
+while (p < norkerCount) {
+    var x = Math.floor(Math.random() * L);
+    var y = Math.floor(Math.random() * K);
+
+    if (matrix[y][x] == 0) {
+        matrix[y][x] = 5;
+        p++;
+    }
+}
 
 function setup() {
 
@@ -101,6 +112,7 @@ function draw() {
     background('#acacac');
 
     function exanak() {
+        var p = document.getElementById("p");
         if (frameCount % 40 >= 0 && frameCount % 40 < 10) {
             for (var i = 0; i < matrix.length; i++) {
                 for (var j = 0; j < matrix[i].length; j++) {
@@ -122,7 +134,7 @@ function draw() {
                     }
                 }
             }
-            console.log("gn");
+            p.innerText = "garun";
         }
         else if (frameCount % 40 >= 10 && frameCount % 40 < 20) {
             for (var i = 0; i < matrix.length; i++) {
@@ -145,7 +157,7 @@ function draw() {
                     }
                 }
             }
-            console.log("amar");
+            p.innerText = "amar";
         }
         else if (frameCount % 40 >= 20 && frameCount % 40 < 30) {
             for (var i = 0; i < matrix.length; i++) {
@@ -168,7 +180,7 @@ function draw() {
                     }
                 }
             }
-            console.log("ashun");
+            p.innerText = "ashun";
         }
         else if (frameCount % 40 >= 30 && frameCount % 40 <= 39) {
             for (var i = 0; i < matrix.length; i++) {
@@ -191,13 +203,13 @@ function draw() {
                     }
                 }
             }
-            console.log("cmer");
+            p.innerText = "cmer";
         }
     }
 
 
 
-exanak();
+    exanak();
 
 
 

@@ -1,14 +1,10 @@
-class mayrakan {
+class norkerpar {
     constructor(x, y, ind) {
         this.index = ind;
         this.x = x;
         this.y = y;
-        this.multiply = 0;
-        this.eatCount = 0;
-        this.energy = 3;
-
     }
-
+ 
     newDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -39,6 +35,9 @@ class mayrakan {
         return found;
     }
 
+
+
+
     move() {
         var emptyCord = this.getDirections(0);
         var cord = random(emptyCord);
@@ -58,42 +57,4 @@ class mayrakan {
     }
 
 
-    eat() {
 
-        var emptyCord = this.getDirections(1);
-
-        var cord = random(emptyCord);
-
-        if (cord) {
-            this.multiply++;
-
-            var x = cord[0];
-            var y = cord[1];
-
-            matrix[y][x] = 2;
-            matrix[this.y][this.x] = 0;
-
-            this.x = x;
-            this.y = y;
-
-
-            for (var i in xotArr) {
-                if (x == xotArr[i].x && y == xotArr[i].y) {
-                    xotArr.splice(i, 1);
-                }
-            }
-            if (this.multiply == 10) {
-                this.mul()
-                this.multiply = 0;
-            }
-
-        } else {
-            this.move();
-            this.energy--;
-            if (this.energy < 3) {
-                this.die();
-                //this.energy = 10;
-            }
-        }
-    }
-}
